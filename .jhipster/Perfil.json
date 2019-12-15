@@ -1,0 +1,165 @@
+{
+    "name": "Perfil",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "primerApellido",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "segundoApellido",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "edad",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "estadoCivil",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sexo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telefonoCelular",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telefonoFijo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "correoElectronico",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cedula",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaIngreso",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaSalida",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "carreraProfesional",
+            "otherEntityRelationshipName": "perfil",
+            "relationshipName": "carreraProfesional",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "historiaUsuario",
+            "otherEntityRelationshipName": "perfil",
+            "relationshipName": "historiaUsuario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "conversacion",
+            "otherEntityRelationshipName": "perfil",
+            "relationshipName": "conversacion"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "notificacion",
+            "otherEntityRelationshipName": "perfil",
+            "relationshipName": "notificacion"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "curso",
+            "otherEntityRelationshipName": "perfil",
+            "relationshipName": "curso"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "articulo",
+            "otherEntityRelationshipName": "perfil",
+            "relationshipName": "articulo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "comentario",
+            "otherEntityRelationshipName": "perfil",
+            "relationshipName": "comentario"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "suscripcion",
+            "otherEntityRelationshipName": "suscriptor",
+            "relationshipName": "suscripcion",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191214230126",
+    "javadoc": "Perfil entity.\\n@author Max Rojas.",
+    "entityTableName": "perfil",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

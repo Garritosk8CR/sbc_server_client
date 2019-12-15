@@ -1,0 +1,47 @@
+{
+    "name": "Publicacion",
+    "fields": [
+        {
+            "fieldName": "fechaPublicacion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "contenido",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tipoPublicacion",
+            "fieldType": "TipoPublicacion",
+            "fieldValues": "ESPECIAL,NO_ESPECIAL"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "comentario",
+            "otherEntityRelationshipName": "publicacion",
+            "relationshipName": "comentario"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "perfil",
+            "otherEntityRelationshipName": "publicacion",
+            "relationshipName": "perfil",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "changelogDate": "20191214230138",
+    "javadoc": "Publicacion entity.\\n@author Max Rojas.",
+    "entityTableName": "publicacion",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

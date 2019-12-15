@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="conversacion">
+            <h2><span jhiTranslate="sbcAppApp.conversacion.detail.title">Conversacion</span> {{conversacion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sbcAppApp.conversacion.usuario1">Usuario 1</span></dt>
+                <dd>
+                    <span>{{conversacion.usuario1}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.conversacion.usuario2">Usuario 2</span></dt>
+                <dd>
+                    <span>{{conversacion.usuario2}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.conversacion.fechaDeConversacion">Fecha De Conversacion</span></dt>
+                <dd>
+                    <span>{{conversacion.fechaDeConversacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.conversacion.perfil">Perfil</span></dt>
+                <dd>
+                    <div *ngIf="conversacion.perfilId">
+                        <a [routerLink]="['/perfil', conversacion.perfilId, 'view']">{{conversacion.perfilId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/conversacion', conversacion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

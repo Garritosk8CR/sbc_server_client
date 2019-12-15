@@ -1,0 +1,187 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-perfil-heading" jhiTranslate="sbcAppApp.perfil.home.createOrEditLabel">Create or edit a Perfil</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.primerApellido" for="field_primerApellido">Primer Apellido</label>
+                    <input type="text" class="form-control" name="primerApellido" id="field_primerApellido"
+                           formControlName="primerApellido"/>
+                    <div *ngIf="editForm.get('primerApellido').invalid && (editForm.get('primerApellido').dirty || editForm.get('primerApellido').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('primerApellido').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.segundoApellido" for="field_segundoApellido">Segundo Apellido</label>
+                    <input type="text" class="form-control" name="segundoApellido" id="field_segundoApellido"
+                           formControlName="segundoApellido"/>
+                    <div *ngIf="editForm.get('segundoApellido').invalid && (editForm.get('segundoApellido').dirty || editForm.get('segundoApellido').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('segundoApellido').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.edad" for="field_edad">Edad</label>
+                    <input type="text" class="form-control" name="edad" id="field_edad"
+                           formControlName="edad"/>
+                    <div *ngIf="editForm.get('edad').invalid && (editForm.get('edad').dirty || editForm.get('edad').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('edad').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.estadoCivil" for="field_estadoCivil">Estado Civil</label>
+                    <input type="text" class="form-control" name="estadoCivil" id="field_estadoCivil"
+                           formControlName="estadoCivil"/>
+                    <div *ngIf="editForm.get('estadoCivil').invalid && (editForm.get('estadoCivil').dirty || editForm.get('estadoCivil').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('estadoCivil').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.sexo" for="field_sexo">Sexo</label>
+                    <input type="text" class="form-control" name="sexo" id="field_sexo"
+                           formControlName="sexo"/>
+                    <div *ngIf="editForm.get('sexo').invalid && (editForm.get('sexo').dirty || editForm.get('sexo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sexo').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.telefonoCelular" for="field_telefonoCelular">Telefono Celular</label>
+                    <input type="text" class="form-control" name="telefonoCelular" id="field_telefonoCelular"
+                           formControlName="telefonoCelular"/>
+                    <div *ngIf="editForm.get('telefonoCelular').invalid && (editForm.get('telefonoCelular').dirty || editForm.get('telefonoCelular').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('telefonoCelular').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.telefonoFijo" for="field_telefonoFijo">Telefono Fijo</label>
+                    <input type="text" class="form-control" name="telefonoFijo" id="field_telefonoFijo"
+                           formControlName="telefonoFijo"/>
+                    <div *ngIf="editForm.get('telefonoFijo').invalid && (editForm.get('telefonoFijo').dirty || editForm.get('telefonoFijo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('telefonoFijo').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.correoElectronico" for="field_correoElectronico">Correo Electronico</label>
+                    <input type="text" class="form-control" name="correoElectronico" id="field_correoElectronico"
+                           formControlName="correoElectronico"/>
+                    <div *ngIf="editForm.get('correoElectronico').invalid && (editForm.get('correoElectronico').dirty || editForm.get('correoElectronico').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('correoElectronico').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.direccion" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion"/>
+                    <div *ngIf="editForm.get('direccion').invalid && (editForm.get('direccion').dirty || editForm.get('direccion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('direccion').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.cedula" for="field_cedula">Cedula</label>
+                    <input type="text" class="form-control" name="cedula" id="field_cedula"
+                           formControlName="cedula"/>
+                    <div *ngIf="editForm.get('cedula').invalid && (editForm.get('cedula').dirty || editForm.get('cedula').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cedula').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.fechaIngreso" for="field_fechaIngreso">Fecha Ingreso</label>
+                    <div class="input-group">
+                        <input id="field_fechaIngreso" type="text" class="form-control" name="fechaIngreso" ngbDatepicker  #fechaIngresoDp="ngbDatepicker" formControlName="fechaIngreso"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaIngresoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('fechaIngreso').invalid && (editForm.get('fechaIngreso').dirty || editForm.get('fechaIngreso').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fechaIngreso').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.fechaSalida" for="field_fechaSalida">Fecha Salida</label>
+                    <div class="input-group">
+                        <input id="field_fechaSalida" type="text" class="form-control" name="fechaSalida" ngbDatepicker  #fechaSalidaDp="ngbDatepicker" formControlName="fechaSalida"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaSalidaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.foto" for="field_foto">Foto</label>
+                    <input type="text" class="form-control" name="foto" id="field_foto"
+                           formControlName="foto"/>
+                    <div *ngIf="editForm.get('foto').invalid && (editForm.get('foto').dirty || editForm.get('foto').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('foto').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.perfil.carreraProfesional" for="field_carreraProfesional">Carrera Profesional</label>
+                    <select class="form-control" id="field_carreraProfesional" name="carreraProfesional" formControlName="carreraProfesionalId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="carreraProfesionalOption.id" *ngFor="let carreraProfesionalOption of carreraprofesionals; trackBy: trackCarreraProfesionalById">{{carreraProfesionalOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

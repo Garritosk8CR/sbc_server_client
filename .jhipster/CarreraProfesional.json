@@ -1,0 +1,38 @@
+{
+    "name": "CarreraProfesional",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "puestoDeTrabajo",
+            "otherEntityRelationshipName": "carreraProfesional",
+            "relationshipName": "puesto"
+        }
+    ],
+    "changelogDate": "20191214230127",
+    "javadoc": "CarreraProfesional entity.\\n@author Max Rojas.",
+    "entityTableName": "carrera_profesional",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,51 @@
+{
+    "name": "Conversacion",
+    "fields": [
+        {
+            "fieldName": "usuario1",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "usuario2",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaDeConversacion",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "perfil",
+            "otherEntityName": "perfil",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mensaje",
+            "otherEntityRelationshipName": "conversacion",
+            "relationshipName": "mensaje"
+        }
+    ],
+    "changelogDate": "20191214230132",
+    "javadoc": "Conversacion entity.\\n@author Max Rojas.",
+    "entityTableName": "conversacion",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

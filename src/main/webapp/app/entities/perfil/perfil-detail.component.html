@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="perfil">
+            <h2><span jhiTranslate="sbcAppApp.perfil.detail.title">Perfil</span> {{perfil.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sbcAppApp.perfil.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{perfil.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.primerApellido">Primer Apellido</span></dt>
+                <dd>
+                    <span>{{perfil.primerApellido}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.segundoApellido">Segundo Apellido</span></dt>
+                <dd>
+                    <span>{{perfil.segundoApellido}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.edad">Edad</span></dt>
+                <dd>
+                    <span>{{perfil.edad}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.estadoCivil">Estado Civil</span></dt>
+                <dd>
+                    <span>{{perfil.estadoCivil}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.sexo">Sexo</span></dt>
+                <dd>
+                    <span>{{perfil.sexo}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.telefonoCelular">Telefono Celular</span></dt>
+                <dd>
+                    <span>{{perfil.telefonoCelular}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.telefonoFijo">Telefono Fijo</span></dt>
+                <dd>
+                    <span>{{perfil.telefonoFijo}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.correoElectronico">Correo Electronico</span></dt>
+                <dd>
+                    <span>{{perfil.correoElectronico}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{perfil.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.cedula">Cedula</span></dt>
+                <dd>
+                    <span>{{perfil.cedula}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.fechaIngreso">Fecha Ingreso</span></dt>
+                <dd>
+                    <span>{{perfil.fechaIngreso}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.fechaSalida">Fecha Salida</span></dt>
+                <dd>
+                    <span>{{perfil.fechaSalida}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.foto">Foto</span></dt>
+                <dd>
+                    <span>{{perfil.foto}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.perfil.carreraProfesional">Carrera Profesional</span></dt>
+                <dd>
+                    <div *ngIf="perfil.carreraProfesionalId">
+                        <a [routerLink]="['/carrera-profesional', perfil.carreraProfesionalId, 'view']">{{perfil.carreraProfesionalNombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/perfil', perfil.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

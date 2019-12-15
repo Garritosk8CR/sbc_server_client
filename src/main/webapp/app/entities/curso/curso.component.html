@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sbcAppApp.curso.home.title">Cursos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-curso" [routerLink]="['/curso/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sbcAppApp.curso.home.createLabel">
+            Create a new Curso
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="cursos?.length === 0">
+        <span jhiTranslate="sbcAppApp.curso.home.notFound">No cursos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="cursos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.curso.nombre">Nombre</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.curso.slug">Slug</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.curso.descripcion">Descripcion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.curso.categoria">Categoria</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.curso.duracion">Duracion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.curso.totalDeArticulos">Total De Articulos</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.curso.fechaActualizacion">Fecha Actualizacion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.curso.perfil">Perfil</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let curso of cursos ;trackBy: trackId">
+                <td><a [routerLink]="['/curso', curso.id, 'view' ]">{{curso.id}}</a></td>
+                <td>{{curso.nombre}}</td>
+                <td>{{curso.slug}}</td>
+                <td>{{curso.descripcion}}</td>
+                <td jhiTranslate="{{'sbcAppApp.Categoria.' + curso.categoria}}">{{curso.categoria}}</td>
+                <td>{{curso.duracion}}</td>
+                <td>{{curso.totalDeArticulos}}</td>
+                <td>{{curso.fechaActualizacion | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="curso.perfilId">
+                        <a [routerLink]="['/perfil', curso.perfilId , 'view' ]" >{{curso.perfilId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/curso', curso.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/curso', curso.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/curso', { outlets: { popup: curso.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

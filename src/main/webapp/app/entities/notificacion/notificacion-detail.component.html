@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notificacion">
+            <h2><span jhiTranslate="sbcAppApp.notificacion.detail.title">Notificacion</span> {{notificacion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sbcAppApp.notificacion.origen">Origen</span></dt>
+                <dd>
+                    <span>{{notificacion.origen}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.notificacion.destino">Destino</span></dt>
+                <dd>
+                    <span>{{notificacion.destino}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.notificacion.tipo">Tipo</span></dt>
+                <dd>
+                    <span>{{notificacion.tipo}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.notificacion.fechaEmision">Fecha Emision</span></dt>
+                <dd>
+                    <span>{{notificacion.fechaEmision}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.notificacion.estadoMensaje">Estado Mensaje</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'sbcAppApp.EstadoMensaje.' + notificacion.estadoMensaje}}">{{notificacion.estadoMensaje}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.notificacion.perfil">Perfil</span></dt>
+                <dd>
+                    <div *ngIf="notificacion.perfilId">
+                        <a [routerLink]="['/perfil', notificacion.perfilId, 'view']">{{notificacion.perfilId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notificacion', notificacion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

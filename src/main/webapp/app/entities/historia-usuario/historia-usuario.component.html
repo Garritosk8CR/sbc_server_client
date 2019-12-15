@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sbcAppApp.historiaUsuario.home.title">Historia Usuarios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-historia-usuario" [routerLink]="['/historia-usuario/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sbcAppApp.historiaUsuario.home.createLabel">
+            Create a new Historia Usuario
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="historiaUsuarios?.length === 0">
+        <span jhiTranslate="sbcAppApp.historiaUsuario.home.notFound">No historiaUsuarios found</span>
+    </div>
+    <div class="table-responsive" *ngIf="historiaUsuarios?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.historiaUsuario.nombre">Nombre</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.historiaUsuario.descripcion">Descripcion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.historiaUsuario.fechaCreacion">Fecha Creacion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.historiaUsuario.fechaConclucion">Fecha Conclucion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.historiaUsuario.sprint">Sprint</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.historiaUsuario.isEpic">Is Epic</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.historiaUsuario.perfil">Perfil</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let historiaUsuario of historiaUsuarios ;trackBy: trackId">
+                <td><a [routerLink]="['/historia-usuario', historiaUsuario.id, 'view' ]">{{historiaUsuario.id}}</a></td>
+                <td>{{historiaUsuario.nombre}}</td>
+                <td>{{historiaUsuario.descripcion}}</td>
+                <td>{{historiaUsuario.fechaCreacion | date:'mediumDate'}}</td>
+                <td>{{historiaUsuario.fechaConclucion | date:'mediumDate'}}</td>
+                <td>{{historiaUsuario.sprint}}</td>
+                <td>{{historiaUsuario.isEpic}}</td>
+                <td>
+                    <div *ngIf="historiaUsuario.perfilId">
+                        <a [routerLink]="['/perfil', historiaUsuario.perfilId , 'view' ]" >{{historiaUsuario.perfilId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/historia-usuario', historiaUsuario.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/historia-usuario', historiaUsuario.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/historia-usuario', { outlets: { popup: historiaUsuario.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

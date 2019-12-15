@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-mensaje-heading" jhiTranslate="sbcAppApp.mensaje.home.createOrEditLabel">Create or edit a Mensaje</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.mensaje.mensaje" for="field_mensaje">Mensaje</label>
+                    <input type="text" class="form-control" name="mensaje" id="field_mensaje"
+                           formControlName="mensaje"/>
+                    <div *ngIf="editForm.get('mensaje').invalid && (editForm.get('mensaje').dirty || editForm.get('mensaje').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mensaje').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.mensaje.fechaEmision" for="field_fechaEmision">Fecha Emision</label>
+                    <input type="text" class="form-control" name="fechaEmision" id="field_fechaEmision"
+                           formControlName="fechaEmision"/>
+                    <div *ngIf="editForm.get('fechaEmision').invalid && (editForm.get('fechaEmision').dirty || editForm.get('fechaEmision').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fechaEmision').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.mensaje.estadoMensaje" for="field_estadoMensaje">Estado Mensaje</label>
+                    <select class="form-control" name="estadoMensaje" formControlName="estadoMensaje" id="field_estadoMensaje">
+                        <option value="LEIDO">{{'sbcAppApp.EstadoMensaje.LEIDO' | translate}}</option>
+                        <option value="NO_LEIDO">{{'sbcAppApp.EstadoMensaje.NO_LEIDO' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.mensaje.conversacion" for="field_conversacion">Conversacion</label>
+                    <select class="form-control" id="field_conversacion" name="conversacion" formControlName="conversacionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="conversacionOption.id" *ngFor="let conversacionOption of conversacions; trackBy: trackConversacionById">{{conversacionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "sbcAppApp": {
+    "requisito": {
+      "home": {
+        "title": "Requisitos",
+        "createLabel": "Crear nuevo Requisito",
+        "createOrEditLabel": "Crear o editar Requisito",
+        "notFound": "No Requisitos found"
+      },
+      "created": "Un nuevo Requisito ha sido creado con el identificador {{ param }}",
+      "updated": "Un Requisito ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Requisito ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Requisito {{ id }}?"
+      },
+      "detail": {
+        "title": "Requisito"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "tipo": "Tipo",
+      "puestoDeTrabajo": "Puesto De Trabajo"
+    }
+  }
+}

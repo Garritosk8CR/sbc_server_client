@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="publicacion">
+            <h2><span jhiTranslate="sbcAppApp.publicacion.detail.title">Publicacion</span> {{publicacion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sbcAppApp.publicacion.fechaPublicacion">Fecha Publicacion</span></dt>
+                <dd>
+                    <span>{{publicacion.fechaPublicacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.publicacion.contenido">Contenido</span></dt>
+                <dd>
+                    <span>{{publicacion.contenido}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.publicacion.tipoPublicacion">Tipo Publicacion</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'sbcAppApp.TipoPublicacion.' + publicacion.tipoPublicacion}}">{{publicacion.tipoPublicacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.publicacion.perfil">Perfil</span></dt>
+                <dd>
+                    <div *ngIf="publicacion.perfilId">
+                        <a [routerLink]="['/perfil', publicacion.perfilId, 'view']">{{publicacion.perfilNombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/publicacion', publicacion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

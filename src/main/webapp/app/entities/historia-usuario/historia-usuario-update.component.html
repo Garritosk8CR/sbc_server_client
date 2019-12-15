@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-historia-usuario-heading" jhiTranslate="sbcAppApp.historiaUsuario.home.createOrEditLabel">Create or edit a Historia Usuario</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.historiaUsuario.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.historiaUsuario.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                    <div *ngIf="editForm.get('descripcion').invalid && (editForm.get('descripcion').dirty || editForm.get('descripcion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('descripcion').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.historiaUsuario.fechaCreacion" for="field_fechaCreacion">Fecha Creacion</label>
+                    <div class="input-group">
+                        <input id="field_fechaCreacion" type="text" class="form-control" name="fechaCreacion" ngbDatepicker  #fechaCreacionDp="ngbDatepicker" formControlName="fechaCreacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaCreacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('fechaCreacion').invalid && (editForm.get('fechaCreacion').dirty || editForm.get('fechaCreacion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fechaCreacion').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.historiaUsuario.fechaConclucion" for="field_fechaConclucion">Fecha Conclucion</label>
+                    <div class="input-group">
+                        <input id="field_fechaConclucion" type="text" class="form-control" name="fechaConclucion" ngbDatepicker  #fechaConclucionDp="ngbDatepicker" formControlName="fechaConclucion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaConclucionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.historiaUsuario.sprint" for="field_sprint">Sprint</label>
+                    <input type="text" class="form-control" name="sprint" id="field_sprint"
+                           formControlName="sprint"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.historiaUsuario.isEpic" for="field_isEpic">Is Epic</label>
+                    <input type="checkbox" class="form-control" name="isEpic" id="field_isEpic"
+                           formControlName="isEpic"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.historiaUsuario.perfil" for="field_perfil">Perfil</label>
+                    <select class="form-control" id="field_perfil" name="perfil" formControlName="perfilId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="perfilOption.id" *ngFor="let perfilOption of perfils; trackBy: trackPerfilById">{{perfilOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

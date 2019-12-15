@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-comentario-heading" jhiTranslate="sbcAppApp.comentario.home.createOrEditLabel">Create or edit a Comentario</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.comentario.autor" for="field_autor">Autor</label>
+                    <input type="text" class="form-control" name="autor" id="field_autor"
+                           formControlName="autor"/>
+                    <div *ngIf="editForm.get('autor').invalid && (editForm.get('autor').dirty || editForm.get('autor').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('autor').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.comentario.avatar" for="field_avatar">Avatar</label>
+                    <input type="text" class="form-control" name="avatar" id="field_avatar"
+                           formControlName="avatar"/>
+                    <div *ngIf="editForm.get('avatar').invalid && (editForm.get('avatar').dirty || editForm.get('avatar').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('avatar').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.comentario.fechaCreacion" for="field_fechaCreacion">Fecha Creacion</label>
+                    <div class="input-group">
+                        <input id="field_fechaCreacion" type="text" class="form-control" name="fechaCreacion" ngbDatepicker  #fechaCreacionDp="ngbDatepicker" formControlName="fechaCreacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaCreacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('fechaCreacion').invalid && (editForm.get('fechaCreacion').dirty || editForm.get('fechaCreacion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fechaCreacion').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.comentario.contenido" for="field_contenido">Contenido</label>
+                    <input type="text" class="form-control" name="contenido" id="field_contenido"
+                           formControlName="contenido"/>
+                    <div *ngIf="editForm.get('contenido').invalid && (editForm.get('contenido').dirty || editForm.get('contenido').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contenido').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.comentario.perfil" for="field_perfil">Perfil</label>
+                    <select class="form-control" id="field_perfil" name="perfil" formControlName="perfilId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="perfilOption.id" *ngFor="let perfilOption of perfils; trackBy: trackPerfilById">{{perfilOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.comentario.tarea" for="field_tarea">Tarea</label>
+                    <select class="form-control" id="field_tarea" name="tarea" formControlName="tareaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tareaOption.id" *ngFor="let tareaOption of tareas; trackBy: trackTareaById">{{tareaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.comentario.articulo" for="field_articulo">Articulo</label>
+                    <select class="form-control" id="field_articulo" name="articulo" formControlName="articuloId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="articuloOption.id" *ngFor="let articuloOption of articulos; trackBy: trackArticuloById">{{articuloOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.comentario.publicacion" for="field_publicacion">Publicacion</label>
+                    <select class="form-control" id="field_publicacion" name="publicacion" formControlName="publicacionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="publicacionOption.id" *ngFor="let publicacionOption of publicacions; trackBy: trackPublicacionById">{{publicacionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

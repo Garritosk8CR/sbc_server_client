@@ -1,0 +1,271 @@
+/**
+ * Perfil entity.
+ * @author Max Rojas.
+ */
+entity Perfil {
+    nombre String required,
+    primerApellido String required,
+    segundoApellido String required,
+    edad String required,
+    estadoCivil String required,
+    sexo String required,
+    telefonoCelular String required,
+    telefonoFijo String required,
+    correoElectronico String required,
+    direccion String required,
+    cedula String required,
+    fechaIngreso LocalDate required,
+    fechaSalida LocalDate,
+    foto String required
+
+}
+
+/**
+ * CarreraProfesional entity.
+ * @author Max Rojas.
+ */
+entity CarreraProfesional{
+    nombre String required,
+    descripcion String required
+}
+
+/**
+ * PuestoDeTrabajo entity.
+ * @author Max Rojas.
+ */
+entity PuestoDeTrabajo {
+    nombre String required,
+    descripcion String required
+}
+
+/**
+ * Requisito entity.
+ * @author Max Rojas.
+ */
+entity Requisito {
+    nombre String required,
+    descripcion String required,
+    tipo String required
+}
+
+
+/**
+ * HistoriaUsuario entity.
+ * @author Max Rojas.
+ */
+entity HistoriaUsuario {
+    nombre String required,
+    descripcion String required,
+    fechaCreacion LocalDate required,
+    fechaConclucion LocalDate,
+    sprint String,
+    isEpic Boolean
+
+
+}
+
+
+/**
+ * Tarea entity.
+ * @author Max Rojas.
+ */
+entity Tarea{
+    nombre String required,
+    descripcion String required,
+    fechaCreacion LocalDate required,
+    fechaConclucion LocalDate,
+    estadoTarea EstadoTarea
+
+}
+
+
+
+
+/**
+ * Conversacion entity.
+ * @author Max Rojas.
+ */
+entity Conversacion {
+    usuario1 String required,
+    usuario2 String required,
+    fechaDeConversacion LocalDate required
+}
+
+/**
+ * Mensaje entity.
+ * @author Max Rojas.
+ */
+entity Mensaje {
+    mensaje String required,
+    fechaEmision String required,
+    estadoMensaje EstadoMensaje
+
+}
+
+/**
+ * Notificacion entity.
+ * @author Max Rojas.
+ */
+entity Notificacion {
+    origen String,
+    destino String,
+    tipo String,
+    fechaEmision LocalDate,
+    estadoMensaje EstadoMensaje
+}
+
+/**
+ * Curso entity.
+ * @author Max Rojas.
+ */
+entity Curso{
+    nombre String required,
+    slug String required,
+    descripcion String required,
+    categoria Categoria required,
+    duracion String required,
+    totalDeArticulos String required,
+    fechaActualizacion LocalDate required
+
+}
+
+/**
+ * Articulo entity.
+ * @author Max Rojas.
+ */
+entity Articulo{
+    titulo String required,
+    contenido String required,
+    fechaCreacion LocalDate required
+}
+
+
+/**
+ * Publicacion entity.
+ * @author Max Rojas.
+ */
+entity Publicacion {
+    fechaPublicacion LocalDate,
+    contenido String required,
+    tipoPublicacion TipoPublicacion
+}
+
+
+/**
+ * Comentario entity.
+ * @author Max Rojas.
+ */
+entity Comentario {
+    autor String required,
+    avatar String required,
+    fechaCreacion LocalDate required,
+    contenido String required
+}
+
+/**
+ * Suscripcion entity.
+ * @author Max Rojas.
+ */
+entity Suscripcion {
+    fechaSuscripcion LocalDate,
+    estadoSuscripcion String,
+    estadoSuscripcion EstadoSuscripcion
+}
+
+/**
+ * Enum Categoria.
+ * @author Max Rojas.
+ */
+enum Categoria {
+    FRONT_END,
+    BACK_END,
+    MOBILE,
+    DATABASE,
+    BUSINESS,
+    UNIT_TESTING,
+    AUTOMATION,
+    VERSION_CONTROL,
+    CLOUD
+}
+
+/**
+ * Enum EstadoTarea.
+ * @author Max Rojas.
+ */
+enum EstadoTarea{
+    DESIGN,
+    IN_PROGRESS,
+    COMPLETED
+}
+
+/**
+ * Enum EstadoMensaje.
+ * @author Max Rojas.
+ */
+ enum EstadoMensaje{
+    LEIDO,
+    NO_LEIDO
+ }
+
+/**
+ * Enum TipoPublicacion.
+ * @author Max Rojas.
+ */
+enum TipoPublicacion{
+    ESPECIAL,
+    NO_ESPECIAL
+}
+
+/**
+ * Enum EstadoSuscripcion.
+ * @author Max Rojas.
+ */
+enum EstadoSuscripcion{
+    ACTIVO,
+    INACTIVO
+}
+
+
+relationship OneToOne {
+    Perfil{carreraProfesional(nombre)} to CarreraProfesional
+}
+
+relationship ManyToMany {
+    PuestoDeTrabajo{requerimiento(nombre)} to Requisito{puestoDeTrabajo(nombre)},
+    Suscripcion{suscriptor(nombre)} to Perfil{suscripcion}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+    Perfil{historiaUsuario(nombre)} to HistoriaUsuario,
+    Perfil{conversacion(conversacion)} to Conversacion,
+    Perfil{notificacion(notificacion)} to Notificacion,
+    Perfil{curso(nombre)} to Curso,
+    Perfil{articulo(titulo)} to Articulo,
+    Perfil{comentario(comentario)} to Comentario
+    HistoriaUsuario{tarea(nombre)} to Tarea,
+    Conversacion{mensaje(mensaje)} to Mensaje,
+    Curso{articulo(titulo)} to Articulo,
+    Articulo{comentario(comentario)} to Comentario,
+    Publicacion{comentario(comentario)} to Comentario,
+    CarreraProfesional{puesto(nombre)} to PuestoDeTrabajo,
+    Tarea{comentario(comentario)} to Comentario
+}
+
+relationship ManyToOne {
+    Publicacion{perfil(nombre)} to Perfil
+}
+
+
+// Set pagination options
+paginate Publicacion with infinite-scroll
+paginate Tarea with pagination
+
+// Use Data Transfert Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

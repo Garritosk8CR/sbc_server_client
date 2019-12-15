@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-publicacion-heading" jhiTranslate="sbcAppApp.publicacion.home.createOrEditLabel">Create or edit a Publicacion</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.publicacion.fechaPublicacion" for="field_fechaPublicacion">Fecha Publicacion</label>
+                    <div class="input-group">
+                        <input id="field_fechaPublicacion" type="text" class="form-control" name="fechaPublicacion" ngbDatepicker  #fechaPublicacionDp="ngbDatepicker" formControlName="fechaPublicacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaPublicacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.publicacion.contenido" for="field_contenido">Contenido</label>
+                    <input type="text" class="form-control" name="contenido" id="field_contenido"
+                           formControlName="contenido"/>
+                    <div *ngIf="editForm.get('contenido').invalid && (editForm.get('contenido').dirty || editForm.get('contenido').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contenido').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.publicacion.tipoPublicacion" for="field_tipoPublicacion">Tipo Publicacion</label>
+                    <select class="form-control" name="tipoPublicacion" formControlName="tipoPublicacion" id="field_tipoPublicacion">
+                        <option value="ESPECIAL">{{'sbcAppApp.TipoPublicacion.ESPECIAL' | translate}}</option>
+                        <option value="NO_ESPECIAL">{{'sbcAppApp.TipoPublicacion.NO_ESPECIAL' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.publicacion.perfil" for="field_perfil">Perfil</label>
+                    <select class="form-control" id="field_perfil" name="perfil" formControlName="perfilId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="perfilOption.id" *ngFor="let perfilOption of perfils; trackBy: trackPerfilById">{{perfilOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

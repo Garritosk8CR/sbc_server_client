@@ -1,0 +1,30 @@
+{
+  "sbcAppApp": {
+    "curso": {
+      "home": {
+        "title": "Cursos",
+        "createLabel": "Create a new Curso",
+        "createOrEditLabel": "Create or edit a Curso",
+        "notFound": "No Cursos found"
+      },
+      "created": "A new Curso is created with identifier {{ param }}",
+      "updated": "A Curso is updated with identifier {{ param }}",
+      "deleted": "A Curso is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Curso {{ id }}?"
+      },
+      "detail": {
+        "title": "Curso"
+      },
+      "nombre": "Nombre",
+      "slug": "Slug",
+      "descripcion": "Descripcion",
+      "categoria": "Categoria",
+      "duracion": "Duracion",
+      "totalDeArticulos": "Total De Articulos",
+      "fechaActualizacion": "Fecha Actualizacion",
+      "perfil": "Perfil",
+      "articulo": "Articulo"
+    }
+  }
+}

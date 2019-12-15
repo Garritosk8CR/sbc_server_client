@@ -1,0 +1,24 @@
+{
+  "sbcAppApp": {
+    "suscripcion": {
+      "home": {
+        "title": "Suscripcions",
+        "createLabel": "Create a new Suscripcion",
+        "createOrEditLabel": "Create or edit a Suscripcion",
+        "notFound": "No Suscripcions found"
+      },
+      "created": "A new Suscripcion is created with identifier {{ param }}",
+      "updated": "A Suscripcion is updated with identifier {{ param }}",
+      "deleted": "A Suscripcion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Suscripcion {{ id }}?"
+      },
+      "detail": {
+        "title": "Suscripcion"
+      },
+      "fechaSuscripcion": "Fecha Suscripcion",
+      "estadoSuscripcion": "Estado Suscripcion",
+      "suscriptor": "Suscriptor"
+    }
+  }
+}

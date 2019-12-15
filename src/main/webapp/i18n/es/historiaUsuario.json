@@ -1,0 +1,29 @@
+{
+  "sbcAppApp": {
+    "historiaUsuario": {
+      "home": {
+        "title": "Historia Usuarios",
+        "createLabel": "Crear nuevo Historia Usuario",
+        "createOrEditLabel": "Crear o editar Historia Usuario",
+        "notFound": "No Historia Usuarios found"
+      },
+      "created": "Un nuevo Historia Usuario ha sido creado con el identificador {{ param }}",
+      "updated": "Un Historia Usuario ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Historia Usuario ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Historia Usuario {{ id }}?"
+      },
+      "detail": {
+        "title": "Historia Usuario"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "fechaCreacion": "Fecha Creacion",
+      "fechaConclucion": "Fecha Conclucion",
+      "sprint": "Sprint",
+      "isEpic": "Is Epic",
+      "perfil": "Perfil",
+      "tarea": "Tarea"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "sbcAppApp": {
+    "mensaje": {
+      "home": {
+        "title": "Mensajes",
+        "createLabel": "Crear nuevo Mensaje",
+        "createOrEditLabel": "Crear o editar Mensaje",
+        "notFound": "No Mensajes found"
+      },
+      "created": "Un nuevo Mensaje ha sido creado con el identificador {{ param }}",
+      "updated": "Un Mensaje ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Mensaje ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Mensaje {{ id }}?"
+      },
+      "detail": {
+        "title": "Mensaje"
+      },
+      "mensaje": "Mensaje",
+      "fechaEmision": "Fecha Emision",
+      "estadoMensaje": "Estado Mensaje",
+      "conversacion": "Conversacion"
+    }
+  }
+}

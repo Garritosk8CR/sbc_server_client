@@ -1,0 +1,24 @@
+{
+  "sbcAppApp": {
+    "carreraProfesional": {
+      "home": {
+        "title": "Carrera Profesionals",
+        "createLabel": "Crear nuevo Carrera Profesional",
+        "createOrEditLabel": "Crear o editar Carrera Profesional",
+        "notFound": "No Carrera Profesionals found"
+      },
+      "created": "Un nuevo Carrera Profesional ha sido creado con el identificador {{ param }}",
+      "updated": "Un Carrera Profesional ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Carrera Profesional ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Carrera Profesional {{ id }}?"
+      },
+      "detail": {
+        "title": "Carrera Profesional"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "puesto": "Puesto"
+    }
+  }
+}

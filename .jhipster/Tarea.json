@@ -1,0 +1,60 @@
+{
+    "name": "Tarea",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaCreacion",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaConclucion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "estadoTarea",
+            "fieldType": "EstadoTarea",
+            "fieldValues": "DESIGN,IN_PROGRESS,COMPLETED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "historiaUsuario",
+            "otherEntityName": "historiaUsuario",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "comentario",
+            "otherEntityRelationshipName": "tarea",
+            "relationshipName": "comentario"
+        }
+    ],
+    "changelogDate": "20191214230131",
+    "javadoc": "Tarea entity.\\n@author Max Rojas.",
+    "entityTableName": "tarea",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="suscripcion">
+            <h2><span jhiTranslate="sbcAppApp.suscripcion.detail.title">Suscripcion</span> {{suscripcion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sbcAppApp.suscripcion.fechaSuscripcion">Fecha Suscripcion</span></dt>
+                <dd>
+                    <span>{{suscripcion.fechaSuscripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.suscripcion.estadoSuscripcion">Estado Suscripcion</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'sbcAppApp.EstadoSuscripcion.' + suscripcion.estadoSuscripcion}}">{{suscripcion.estadoSuscripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.suscripcion.suscriptor">Suscriptor</span></dt>
+                <dd>
+                    <span *ngFor="let suscriptor of suscripcion.suscriptors; let last = last">
+                        <a [routerLink]="['/perfil', suscriptor?.id, 'view' ]">{{suscriptor.nombre}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/suscripcion', suscripcion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

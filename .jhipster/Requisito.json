@@ -1,0 +1,47 @@
+{
+    "name": "Requisito",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "puestoDeTrabajo",
+            "otherEntityRelationshipName": "requerimiento",
+            "relationshipName": "puestoDeTrabajo",
+            "otherEntityField": "nombre",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191214230129",
+    "javadoc": "Requisito entity.\\n@author Max Rojas.",
+    "entityTableName": "requisito",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

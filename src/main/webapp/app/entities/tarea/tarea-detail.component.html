@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tarea">
+            <h2><span jhiTranslate="sbcAppApp.tarea.detail.title">Tarea</span> {{tarea.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sbcAppApp.tarea.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{tarea.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.tarea.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{tarea.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.tarea.fechaCreacion">Fecha Creacion</span></dt>
+                <dd>
+                    <span>{{tarea.fechaCreacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.tarea.fechaConclucion">Fecha Conclucion</span></dt>
+                <dd>
+                    <span>{{tarea.fechaConclucion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.tarea.estadoTarea">Estado Tarea</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'sbcAppApp.EstadoTarea.' + tarea.estadoTarea}}">{{tarea.estadoTarea}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.tarea.historiaUsuario">Historia Usuario</span></dt>
+                <dd>
+                    <div *ngIf="tarea.historiaUsuarioId">
+                        <a [routerLink]="['/historia-usuario', tarea.historiaUsuarioId, 'view']">{{tarea.historiaUsuarioId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tarea', tarea.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

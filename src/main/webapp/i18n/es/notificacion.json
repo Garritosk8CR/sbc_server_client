@@ -1,0 +1,27 @@
+{
+  "sbcAppApp": {
+    "notificacion": {
+      "home": {
+        "title": "Notificacions",
+        "createLabel": "Crear nuevo Notificacion",
+        "createOrEditLabel": "Crear o editar Notificacion",
+        "notFound": "No Notificacions found"
+      },
+      "created": "Un nuevo Notificacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Notificacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Notificacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Notificacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Notificacion"
+      },
+      "origen": "Origen",
+      "destino": "Destino",
+      "tipo": "Tipo",
+      "fechaEmision": "Fecha Emision",
+      "estadoMensaje": "Estado Mensaje",
+      "perfil": "Perfil"
+    }
+  }
+}

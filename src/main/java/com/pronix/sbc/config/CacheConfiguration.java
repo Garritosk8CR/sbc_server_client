@@ -42,6 +42,38 @@ public class CacheConfiguration {
             createCache(cm, com.pronix.sbc.domain.User.class.getName());
             createCache(cm, com.pronix.sbc.domain.Authority.class.getName());
             createCache(cm, com.pronix.sbc.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.pronix.sbc.domain.Perfil.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Perfil.class.getName() + ".historiaUsuarios");
+            createCache(cm, com.pronix.sbc.domain.Perfil.class.getName() + ".conversacions");
+            createCache(cm, com.pronix.sbc.domain.Perfil.class.getName() + ".notificacions");
+            createCache(cm, com.pronix.sbc.domain.Perfil.class.getName() + ".articulos");
+            createCache(cm, com.pronix.sbc.domain.Perfil.class.getName() + ".comentarios");
+            createCache(cm, com.pronix.sbc.domain.Perfil.class.getName() + ".suscripcions");
+            createCache(cm, com.pronix.sbc.domain.CarreraProfesional.class.getName());
+            createCache(cm, com.pronix.sbc.domain.CarreraProfesional.class.getName() + ".puestos");
+            createCache(cm, com.pronix.sbc.domain.PuestoDeTrabajo.class.getName());
+            createCache(cm, com.pronix.sbc.domain.PuestoDeTrabajo.class.getName() + ".requerimientos");
+            createCache(cm, com.pronix.sbc.domain.Requisito.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Requisito.class.getName() + ".puestoDeTrabajos");
+            createCache(cm, com.pronix.sbc.domain.HistoriaUsuario.class.getName());
+            createCache(cm, com.pronix.sbc.domain.HistoriaUsuario.class.getName() + ".tareas");
+            createCache(cm, com.pronix.sbc.domain.Tarea.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Tarea.class.getName() + ".comentarios");
+            createCache(cm, com.pronix.sbc.domain.Conversacion.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Conversacion.class.getName() + ".mensajes");
+            createCache(cm, com.pronix.sbc.domain.Mensaje.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Notificacion.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Categoria.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Articulo.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Articulo.class.getName() + ".comentarios");
+            createCache(cm, com.pronix.sbc.domain.Publicacion.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Publicacion.class.getName() + ".comentarios");
+            createCache(cm, com.pronix.sbc.domain.Comentario.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Suscripcion.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Suscripcion.class.getName() + ".suscriptors");
+            createCache(cm, com.pronix.sbc.domain.Perfil.class.getName() + ".cursos");
+            createCache(cm, com.pronix.sbc.domain.Curso.class.getName());
+            createCache(cm, com.pronix.sbc.domain.Curso.class.getName() + ".articulos");
             // jhipster-needle-ehcache-add-entry
         };
     }

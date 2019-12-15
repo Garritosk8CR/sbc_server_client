@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sbcAppApp.comentario.home.title">Comentarios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-comentario" [routerLink]="['/comentario/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sbcAppApp.comentario.home.createLabel">
+            Create a new Comentario
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="comentarios?.length === 0">
+        <span jhiTranslate="sbcAppApp.comentario.home.notFound">No comentarios found</span>
+    </div>
+    <div class="table-responsive" *ngIf="comentarios?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.comentario.autor">Autor</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.comentario.avatar">Avatar</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.comentario.fechaCreacion">Fecha Creacion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.comentario.contenido">Contenido</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.comentario.perfil">Perfil</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.comentario.tarea">Tarea</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.comentario.articulo">Articulo</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.comentario.publicacion">Publicacion</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let comentario of comentarios ;trackBy: trackId">
+                <td><a [routerLink]="['/comentario', comentario.id, 'view' ]">{{comentario.id}}</a></td>
+                <td>{{comentario.autor}}</td>
+                <td>{{comentario.avatar}}</td>
+                <td>{{comentario.fechaCreacion | date:'mediumDate'}}</td>
+                <td>{{comentario.contenido}}</td>
+                <td>
+                    <div *ngIf="comentario.perfilId">
+                        <a [routerLink]="['/perfil', comentario.perfilId , 'view' ]" >{{comentario.perfilId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="comentario.tareaId">
+                        <a [routerLink]="['/tarea', comentario.tareaId , 'view' ]" >{{comentario.tareaId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="comentario.articuloId">
+                        <a [routerLink]="['/articulo', comentario.articuloId , 'view' ]" >{{comentario.articuloId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="comentario.publicacionId">
+                        <a [routerLink]="['/publicacion', comentario.publicacionId , 'view' ]" >{{comentario.publicacionId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/comentario', comentario.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/comentario', comentario.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/comentario', { outlets: { popup: comentario.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{
+    "name": "Suscripcion",
+    "fields": [
+        {
+            "fieldName": "fechaSuscripcion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "estadoSuscripcion",
+            "fieldType": "EstadoSuscripcion",
+            "fieldValues": "ACTIVO,INACTIVO"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "perfil",
+            "otherEntityRelationshipName": "suscripcion",
+            "relationshipName": "suscriptor",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191214230140",
+    "javadoc": "Suscripcion entity.\\n@author Max Rojas.",
+    "entityTableName": "suscripcion",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

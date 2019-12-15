@@ -1,0 +1,29 @@
+{
+  "sbcAppApp": {
+    "comentario": {
+      "home": {
+        "title": "Comentarios",
+        "createLabel": "Create a new Comentario",
+        "createOrEditLabel": "Create or edit a Comentario",
+        "notFound": "No Comentarios found"
+      },
+      "created": "A new Comentario is created with identifier {{ param }}",
+      "updated": "A Comentario is updated with identifier {{ param }}",
+      "deleted": "A Comentario is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Comentario {{ id }}?"
+      },
+      "detail": {
+        "title": "Comentario"
+      },
+      "autor": "Autor",
+      "avatar": "Avatar",
+      "fechaCreacion": "Fecha Creacion",
+      "contenido": "Contenido",
+      "perfil": "Perfil",
+      "tarea": "Tarea",
+      "articulo": "Articulo",
+      "publicacion": "Publicacion"
+    }
+  }
+}

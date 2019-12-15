@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sbcAppApp.notificacion.home.title">Notificacions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-notificacion" [routerLink]="['/notificacion/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sbcAppApp.notificacion.home.createLabel">
+            Create a new Notificacion
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="notificacions?.length === 0">
+        <span jhiTranslate="sbcAppApp.notificacion.home.notFound">No notificacions found</span>
+    </div>
+    <div class="table-responsive" *ngIf="notificacions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.notificacion.origen">Origen</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.notificacion.destino">Destino</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.notificacion.tipo">Tipo</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.notificacion.fechaEmision">Fecha Emision</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.notificacion.estadoMensaje">Estado Mensaje</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.notificacion.perfil">Perfil</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let notificacion of notificacions ;trackBy: trackId">
+                <td><a [routerLink]="['/notificacion', notificacion.id, 'view' ]">{{notificacion.id}}</a></td>
+                <td>{{notificacion.origen}}</td>
+                <td>{{notificacion.destino}}</td>
+                <td>{{notificacion.tipo}}</td>
+                <td>{{notificacion.fechaEmision | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'sbcAppApp.EstadoMensaje.' + notificacion.estadoMensaje}}">{{notificacion.estadoMensaje}}</td>
+                <td>
+                    <div *ngIf="notificacion.perfilId">
+                        <a [routerLink]="['/perfil', notificacion.perfilId , 'view' ]" >{{notificacion.perfilId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/notificacion', notificacion.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/notificacion', notificacion.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/notificacion', { outlets: { popup: notificacion.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sbcAppApp.conversacion.home.title">Conversacions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-conversacion" [routerLink]="['/conversacion/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sbcAppApp.conversacion.home.createLabel">
+            Create a new Conversacion
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="conversacions?.length === 0">
+        <span jhiTranslate="sbcAppApp.conversacion.home.notFound">No conversacions found</span>
+    </div>
+    <div class="table-responsive" *ngIf="conversacions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.conversacion.usuario1">Usuario 1</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.conversacion.usuario2">Usuario 2</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.conversacion.fechaDeConversacion">Fecha De Conversacion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.conversacion.perfil">Perfil</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let conversacion of conversacions ;trackBy: trackId">
+                <td><a [routerLink]="['/conversacion', conversacion.id, 'view' ]">{{conversacion.id}}</a></td>
+                <td>{{conversacion.usuario1}}</td>
+                <td>{{conversacion.usuario2}}</td>
+                <td>{{conversacion.fechaDeConversacion | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="conversacion.perfilId">
+                        <a [routerLink]="['/perfil', conversacion.perfilId , 'view' ]" >{{conversacion.perfilId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/conversacion', conversacion.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/conversacion', conversacion.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/conversacion', { outlets: { popup: conversacion.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="historiaUsuario">
+            <h2><span jhiTranslate="sbcAppApp.historiaUsuario.detail.title">Historia Usuario</span> {{historiaUsuario.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sbcAppApp.historiaUsuario.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{historiaUsuario.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.historiaUsuario.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{historiaUsuario.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.historiaUsuario.fechaCreacion">Fecha Creacion</span></dt>
+                <dd>
+                    <span>{{historiaUsuario.fechaCreacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.historiaUsuario.fechaConclucion">Fecha Conclucion</span></dt>
+                <dd>
+                    <span>{{historiaUsuario.fechaConclucion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.historiaUsuario.sprint">Sprint</span></dt>
+                <dd>
+                    <span>{{historiaUsuario.sprint}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.historiaUsuario.isEpic">Is Epic</span></dt>
+                <dd>
+                    <span>{{historiaUsuario.isEpic}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.historiaUsuario.perfil">Perfil</span></dt>
+                <dd>
+                    <div *ngIf="historiaUsuario.perfilId">
+                        <a [routerLink]="['/perfil', historiaUsuario.perfilId, 'view']">{{historiaUsuario.perfilId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/historia-usuario', historiaUsuario.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

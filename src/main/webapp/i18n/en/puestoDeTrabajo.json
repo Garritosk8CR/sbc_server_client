@@ -1,0 +1,25 @@
+{
+  "sbcAppApp": {
+    "puestoDeTrabajo": {
+      "home": {
+        "title": "Puesto De Trabajos",
+        "createLabel": "Create a new Puesto De Trabajo",
+        "createOrEditLabel": "Create or edit a Puesto De Trabajo",
+        "notFound": "No Puesto De Trabajos found"
+      },
+      "created": "A new Puesto De Trabajo is created with identifier {{ param }}",
+      "updated": "A Puesto De Trabajo is updated with identifier {{ param }}",
+      "deleted": "A Puesto De Trabajo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Puesto De Trabajo {{ id }}?"
+      },
+      "detail": {
+        "title": "Puesto De Trabajo"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "carreraProfesional": "Carrera Profesional",
+      "requerimiento": "Requerimiento"
+    }
+  }
+}

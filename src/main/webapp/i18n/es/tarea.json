@@ -1,0 +1,28 @@
+{
+  "sbcAppApp": {
+    "tarea": {
+      "home": {
+        "title": "Tareas",
+        "createLabel": "Crear nuevo Tarea",
+        "createOrEditLabel": "Crear o editar Tarea",
+        "notFound": "No Tareas found"
+      },
+      "created": "Un nuevo Tarea ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tarea ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tarea ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tarea {{ id }}?"
+      },
+      "detail": {
+        "title": "Tarea"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "fechaCreacion": "Fecha Creacion",
+      "fechaConclucion": "Fecha Conclucion",
+      "estadoTarea": "Estado Tarea",
+      "historiaUsuario": "Historia Usuario",
+      "comentario": "Comentario"
+    }
+  }
+}

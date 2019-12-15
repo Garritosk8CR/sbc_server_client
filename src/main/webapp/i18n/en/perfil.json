@@ -1,0 +1,43 @@
+{
+  "sbcAppApp": {
+    "perfil": {
+      "home": {
+        "title": "Perfils",
+        "createLabel": "Create a new Perfil",
+        "createOrEditLabel": "Create or edit a Perfil",
+        "notFound": "No Perfils found"
+      },
+      "created": "A new Perfil is created with identifier {{ param }}",
+      "updated": "A Perfil is updated with identifier {{ param }}",
+      "deleted": "A Perfil is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Perfil {{ id }}?"
+      },
+      "detail": {
+        "title": "Perfil"
+      },
+      "nombre": "Nombre",
+      "primerApellido": "Primer Apellido",
+      "segundoApellido": "Segundo Apellido",
+      "edad": "Edad",
+      "estadoCivil": "Estado Civil",
+      "sexo": "Sexo",
+      "telefonoCelular": "Telefono Celular",
+      "telefonoFijo": "Telefono Fijo",
+      "correoElectronico": "Correo Electronico",
+      "direccion": "Direccion",
+      "cedula": "Cedula",
+      "fechaIngreso": "Fecha Ingreso",
+      "fechaSalida": "Fecha Salida",
+      "foto": "Foto",
+      "carreraProfesional": "Carrera Profesional",
+      "historiaUsuario": "Historia Usuario",
+      "conversacion": "Conversacion",
+      "notificacion": "Notificacion",
+      "curso": "Curso",
+      "articulo": "Articulo",
+      "comentario": "Comentario",
+      "suscripcion": "Suscripcion"
+    }
+  }
+}

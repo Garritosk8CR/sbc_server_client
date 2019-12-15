@@ -7,6 +7,21 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "perfil": "Perfil",
+        "carreraProfesional": "Carrera Profesional",
+        "puestoDeTrabajo": "Puesto De Trabajo",
+        "requisito": "Requisito",
+        "historiaUsuario": "Historia Usuario",
+        "tarea": "Tarea",
+        "conversacion": "Conversacion",
+        "mensaje": "Mensaje",
+        "notificacion": "Notificacion",
+        "categoria": "Categoria",
+        "articulo": "Articulo",
+        "publicacion": "Publicacion",
+        "comentario": "Comentario",
+        "suscripcion": "Suscripcion",
+        "curso": "Curso",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

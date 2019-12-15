@@ -1,0 +1,43 @@
+{
+    "name": "Mensaje",
+    "fields": [
+        {
+            "fieldName": "mensaje",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaEmision",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "estadoMensaje",
+            "fieldType": "EstadoMensaje",
+            "fieldValues": "LEIDO,NO_LEIDO"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "conversacion",
+            "otherEntityName": "conversacion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191214230133",
+    "javadoc": "Mensaje entity.\\n@author Max Rojas.",
+    "entityTableName": "mensaje",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,16 @@
+{
+  "sbcAppApp": {
+    "Categoria": {
+      "null": "",
+      "FRONT_END": "FRONT_END",
+      "BACK_END": "BACK_END",
+      "MOBILE": "MOBILE",
+      "DATABASE": "DATABASE",
+      "BUSINESS": "BUSINESS",
+      "UNIT_TESTING": "UNIT_TESTING",
+      "AUTOMATION": "AUTOMATION",
+      "VERSION_CONTROL": "VERSION_CONTROL",
+      "CLOUD": "CLOUD"
+    }
+  }
+}

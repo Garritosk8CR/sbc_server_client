@@ -1,0 +1,26 @@
+{
+  "sbcAppApp": {
+    "conversacion": {
+      "home": {
+        "title": "Conversacions",
+        "createLabel": "Crear nuevo Conversacion",
+        "createOrEditLabel": "Crear o editar Conversacion",
+        "notFound": "No Conversacions found"
+      },
+      "created": "Un nuevo Conversacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Conversacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Conversacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Conversacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Conversacion"
+      },
+      "usuario1": "Usuario 1",
+      "usuario2": "Usuario 2",
+      "fechaDeConversacion": "Fecha De Conversacion",
+      "perfil": "Perfil",
+      "mensaje": "Mensaje"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "sbcAppApp": {
+    "EstadoSuscripcion": {
+      "null": "",
+      "ACTIVO": "ACTIVO",
+      "INACTIVO": "INACTIVO"
+    }
+  }
+}

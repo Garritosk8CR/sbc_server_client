@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="comentario">
+            <h2><span jhiTranslate="sbcAppApp.comentario.detail.title">Comentario</span> {{comentario.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sbcAppApp.comentario.autor">Autor</span></dt>
+                <dd>
+                    <span>{{comentario.autor}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.comentario.avatar">Avatar</span></dt>
+                <dd>
+                    <span>{{comentario.avatar}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.comentario.fechaCreacion">Fecha Creacion</span></dt>
+                <dd>
+                    <span>{{comentario.fechaCreacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.comentario.contenido">Contenido</span></dt>
+                <dd>
+                    <span>{{comentario.contenido}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.comentario.perfil">Perfil</span></dt>
+                <dd>
+                    <div *ngIf="comentario.perfilId">
+                        <a [routerLink]="['/perfil', comentario.perfilId, 'view']">{{comentario.perfilId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.comentario.tarea">Tarea</span></dt>
+                <dd>
+                    <div *ngIf="comentario.tareaId">
+                        <a [routerLink]="['/tarea', comentario.tareaId, 'view']">{{comentario.tareaId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.comentario.articulo">Articulo</span></dt>
+                <dd>
+                    <div *ngIf="comentario.articuloId">
+                        <a [routerLink]="['/articulo', comentario.articuloId, 'view']">{{comentario.articuloId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.comentario.publicacion">Publicacion</span></dt>
+                <dd>
+                    <div *ngIf="comentario.publicacionId">
+                        <a [routerLink]="['/publicacion', comentario.publicacionId, 'view']">{{comentario.publicacionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/comentario', comentario.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

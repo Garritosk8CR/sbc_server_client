@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sbcAppApp.articulo.home.title">Articulos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-articulo" [routerLink]="['/articulo/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sbcAppApp.articulo.home.createLabel">
+            Create a new Articulo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="articulos?.length === 0">
+        <span jhiTranslate="sbcAppApp.articulo.home.notFound">No articulos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="articulos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.articulo.titulo">Titulo</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.articulo.contenido">Contenido</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.articulo.fechaCreacion">Fecha Creacion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.articulo.perfil">Perfil</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.articulo.curso">Curso</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let articulo of articulos ;trackBy: trackId">
+                <td><a [routerLink]="['/articulo', articulo.id, 'view' ]">{{articulo.id}}</a></td>
+                <td>{{articulo.titulo}}</td>
+                <td>{{articulo.contenido}}</td>
+                <td>{{articulo.fechaCreacion | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="articulo.perfilId">
+                        <a [routerLink]="['/perfil', articulo.perfilId , 'view' ]" >{{articulo.perfilId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="articulo.cursoId">
+                        <a [routerLink]="['/curso', articulo.cursoId , 'view' ]" >{{articulo.cursoId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/articulo', articulo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/articulo', articulo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/articulo', { outlets: { popup: articulo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sbcAppApp.perfil.home.title">Perfils</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-perfil" [routerLink]="['/perfil/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sbcAppApp.perfil.home.createLabel">
+            Create a new Perfil
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="perfils?.length === 0">
+        <span jhiTranslate="sbcAppApp.perfil.home.notFound">No perfils found</span>
+    </div>
+    <div class="table-responsive" *ngIf="perfils?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.nombre">Nombre</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.primerApellido">Primer Apellido</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.segundoApellido">Segundo Apellido</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.edad">Edad</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.estadoCivil">Estado Civil</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.sexo">Sexo</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.telefonoCelular">Telefono Celular</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.telefonoFijo">Telefono Fijo</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.correoElectronico">Correo Electronico</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.direccion">Direccion</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.cedula">Cedula</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.fechaIngreso">Fecha Ingreso</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.fechaSalida">Fecha Salida</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.foto">Foto</span></th>
+            <th scope="col" ><span jhiTranslate="sbcAppApp.perfil.carreraProfesional">Carrera Profesional</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let perfil of perfils ;trackBy: trackId">
+                <td><a [routerLink]="['/perfil', perfil.id, 'view' ]">{{perfil.id}}</a></td>
+                <td>{{perfil.nombre}}</td>
+                <td>{{perfil.primerApellido}}</td>
+                <td>{{perfil.segundoApellido}}</td>
+                <td>{{perfil.edad}}</td>
+                <td>{{perfil.estadoCivil}}</td>
+                <td>{{perfil.sexo}}</td>
+                <td>{{perfil.telefonoCelular}}</td>
+                <td>{{perfil.telefonoFijo}}</td>
+                <td>{{perfil.correoElectronico}}</td>
+                <td>{{perfil.direccion}}</td>
+                <td>{{perfil.cedula}}</td>
+                <td>{{perfil.fechaIngreso | date:'mediumDate'}}</td>
+                <td>{{perfil.fechaSalida | date:'mediumDate'}}</td>
+                <td>{{perfil.foto}}</td>
+                <td>
+                    <div *ngIf="perfil.carreraProfesionalId">
+                        <a [routerLink]="['/carrera-profesional', perfil.carreraProfesionalId , 'view' ]" >{{perfil.carreraProfesionalNombre}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/perfil', perfil.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/perfil', perfil.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/perfil', { outlets: { popup: perfil.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

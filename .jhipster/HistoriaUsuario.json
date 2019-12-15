@@ -1,0 +1,63 @@
+{
+    "name": "HistoriaUsuario",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaCreacion",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaConclucion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "sprint",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isEpic",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "perfil",
+            "otherEntityName": "perfil",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tarea",
+            "otherEntityRelationshipName": "historiaUsuario",
+            "relationshipName": "tarea"
+        }
+    ],
+    "changelogDate": "20191214230130",
+    "javadoc": "HistoriaUsuario entity.\\n@author Max Rojas.",
+    "entityTableName": "historia_usuario",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,45 @@
+{
+    "name": "Notificacion",
+    "fields": [
+        {
+            "fieldName": "origen",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "destino",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaEmision",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "estadoMensaje",
+            "fieldType": "EstadoMensaje",
+            "fieldValues": "LEIDO,NO_LEIDO"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "perfil",
+            "otherEntityName": "perfil",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191214230134",
+    "javadoc": "Notificacion entity.\\n@author Max Rojas.",
+    "entityTableName": "notificacion",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

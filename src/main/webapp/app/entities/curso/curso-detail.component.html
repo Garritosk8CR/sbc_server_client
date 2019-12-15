@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="curso">
+            <h2><span jhiTranslate="sbcAppApp.curso.detail.title">Curso</span> {{curso.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sbcAppApp.curso.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{curso.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.curso.slug">Slug</span></dt>
+                <dd>
+                    <span>{{curso.slug}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.curso.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{curso.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.curso.categoria">Categoria</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'sbcAppApp.Categoria.' + curso.categoria}}">{{curso.categoria}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.curso.duracion">Duracion</span></dt>
+                <dd>
+                    <span>{{curso.duracion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.curso.totalDeArticulos">Total De Articulos</span></dt>
+                <dd>
+                    <span>{{curso.totalDeArticulos}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.curso.fechaActualizacion">Fecha Actualizacion</span></dt>
+                <dd>
+                    <span>{{curso.fechaActualizacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sbcAppApp.curso.perfil">Perfil</span></dt>
+                <dd>
+                    <div *ngIf="curso.perfilId">
+                        <a [routerLink]="['/perfil', curso.perfilId, 'view']">{{curso.perfilId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/curso', curso.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

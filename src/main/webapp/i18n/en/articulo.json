@@ -1,0 +1,27 @@
+{
+  "sbcAppApp": {
+    "articulo": {
+      "home": {
+        "title": "Articulos",
+        "createLabel": "Create a new Articulo",
+        "createOrEditLabel": "Create or edit a Articulo",
+        "notFound": "No Articulos found"
+      },
+      "created": "A new Articulo is created with identifier {{ param }}",
+      "updated": "A Articulo is updated with identifier {{ param }}",
+      "deleted": "A Articulo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Articulo {{ id }}?"
+      },
+      "detail": {
+        "title": "Articulo"
+      },
+      "titulo": "Titulo",
+      "contenido": "Contenido",
+      "fechaCreacion": "Fecha Creacion",
+      "perfil": "Perfil",
+      "curso": "Curso",
+      "comentario": "Comentario"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+    "name": "PuestoDeTrabajo",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "carreraProfesional",
+            "otherEntityName": "carreraProfesional",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "requisito",
+            "otherEntityRelationshipName": "puestoDeTrabajo",
+            "relationshipName": "requerimiento",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191214230128",
+    "javadoc": "PuestoDeTrabajo entity.\\n@author Max Rojas.",
+    "entityTableName": "puesto_de_trabajo",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

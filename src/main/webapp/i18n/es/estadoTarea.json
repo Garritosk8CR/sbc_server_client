@@ -1,0 +1,10 @@
+{
+  "sbcAppApp": {
+    "EstadoTarea": {
+      "null": "",
+      "DESIGN": "DESIGN",
+      "IN_PROGRESS": "IN_PROGRESS",
+      "COMPLETED": "COMPLETED"
+    }
+  }
+}

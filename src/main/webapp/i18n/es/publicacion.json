@@ -1,0 +1,26 @@
+{
+  "sbcAppApp": {
+    "publicacion": {
+      "home": {
+        "title": "Publicacions",
+        "createLabel": "Crear nuevo Publicacion",
+        "createOrEditLabel": "Crear o editar Publicacion",
+        "notFound": "No Publicacions found"
+      },
+      "created": "Un nuevo Publicacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Publicacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Publicacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Publicacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Publicacion"
+      },
+      "fechaPublicacion": "Fecha Publicacion",
+      "contenido": "Contenido",
+      "tipoPublicacion": "Tipo Publicacion",
+      "comentario": "Comentario",
+      "perfil": "Perfil"
+    }
+  }
+}

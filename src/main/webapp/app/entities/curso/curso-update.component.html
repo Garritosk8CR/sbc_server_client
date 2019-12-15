@@ -1,0 +1,121 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-curso-heading" jhiTranslate="sbcAppApp.curso.home.createOrEditLabel">Create or edit a Curso</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.curso.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.curso.slug" for="field_slug">Slug</label>
+                    <input type="text" class="form-control" name="slug" id="field_slug"
+                           formControlName="slug"/>
+                    <div *ngIf="editForm.get('slug').invalid && (editForm.get('slug').dirty || editForm.get('slug').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('slug').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.curso.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                    <div *ngIf="editForm.get('descripcion').invalid && (editForm.get('descripcion').dirty || editForm.get('descripcion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('descripcion').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.curso.categoria" for="field_categoria">Categoria</label>
+                    <select class="form-control" name="categoria" formControlName="categoria" id="field_categoria">
+                        <option value="FRONT_END">{{'sbcAppApp.Categoria.FRONT_END' | translate}}</option>
+                        <option value="BACK_END">{{'sbcAppApp.Categoria.BACK_END' | translate}}</option>
+                        <option value="MOBILE">{{'sbcAppApp.Categoria.MOBILE' | translate}}</option>
+                        <option value="DATABASE">{{'sbcAppApp.Categoria.DATABASE' | translate}}</option>
+                        <option value="BUSINESS">{{'sbcAppApp.Categoria.BUSINESS' | translate}}</option>
+                        <option value="UNIT_TESTING">{{'sbcAppApp.Categoria.UNIT_TESTING' | translate}}</option>
+                        <option value="AUTOMATION">{{'sbcAppApp.Categoria.AUTOMATION' | translate}}</option>
+                        <option value="VERSION_CONTROL">{{'sbcAppApp.Categoria.VERSION_CONTROL' | translate}}</option>
+                        <option value="CLOUD">{{'sbcAppApp.Categoria.CLOUD' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('categoria').invalid && (editForm.get('categoria').dirty || editForm.get('categoria').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('categoria').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.curso.duracion" for="field_duracion">Duracion</label>
+                    <input type="text" class="form-control" name="duracion" id="field_duracion"
+                           formControlName="duracion"/>
+                    <div *ngIf="editForm.get('duracion').invalid && (editForm.get('duracion').dirty || editForm.get('duracion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('duracion').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.curso.totalDeArticulos" for="field_totalDeArticulos">Total De Articulos</label>
+                    <input type="text" class="form-control" name="totalDeArticulos" id="field_totalDeArticulos"
+                           formControlName="totalDeArticulos"/>
+                    <div *ngIf="editForm.get('totalDeArticulos').invalid && (editForm.get('totalDeArticulos').dirty || editForm.get('totalDeArticulos').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('totalDeArticulos').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.curso.fechaActualizacion" for="field_fechaActualizacion">Fecha Actualizacion</label>
+                    <div class="input-group">
+                        <input id="field_fechaActualizacion" type="text" class="form-control" name="fechaActualizacion" ngbDatepicker  #fechaActualizacionDp="ngbDatepicker" formControlName="fechaActualizacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaActualizacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('fechaActualizacion').invalid && (editForm.get('fechaActualizacion').dirty || editForm.get('fechaActualizacion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fechaActualizacion').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sbcAppApp.curso.perfil" for="field_perfil">Perfil</label>
+                    <select class="form-control" id="field_perfil" name="perfil" formControlName="perfilId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="perfilOption.id" *ngFor="let perfilOption of perfils; trackBy: trackPerfilById">{{perfilOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
